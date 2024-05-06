@@ -7,34 +7,16 @@ from datetime import datetime
 from sklearn.tree import DecisionTreeClassifier
 import plotly.express as px
 import streamlit as st
+from PIL import Image
 from stocknews import StockNews
 
 st.set_page_config(page_title = "Optiwealth Stock Prediction App", layout = 'wide', initial_sidebar_state= 'expanded' )
-
-#Loading the dataset
-ticker = 'GOOG'
-df = yf.download(tickers = ticker)
-
-#Compute 'change_tomorrow' feature
-df['change_tomorrow'] = df['Close'].pct_change(-1)
-df.change_tomorrow = df.change_tomorrow * -1
-df.change_tomorrow = df.change_tomorrow * 100
-df['direction'] = np.where(df.change_tomorrow>0, 'UP', 'DOWN')
-
-#Compute Machine Learning Model 'Decision Tree'
-# The target feature is the Market Direction
-y = df.direction
-
-# The predictor variables will be the OHLCV variables
-X = df.drop(columns = ['change_tomorrow', 'Adj Close', 'direction'])
-
-model = DecisionTreeClassifier(max_depth =20, min_samples_split = 5, random_state =42)
-model.fit(X, y)
-result = model.predict(X)
-print(result)
-
+img = Image.open("Risk Vs Reward.JPG")
+st.sidebar.image(img, width= 300)
+img2 = Image.open("bulls.jpeg")
+st.image(img2, width=300)
 st.title("Welcome to Optiwealth ")
-st.header("Where Stock investment Decisions are Made!")
+st.header("Demystifying Stock Markets!")
 st.sidebar.title("For stock Advisory")
 st.sidebar.header("A product of Team FaPhy")
 ticker = st.sidebar.text_input('Choose Your Stock')

@@ -1,0 +1,7 @@
+yfinance
+plotly
+streamlit
+pandas 
+numpy
+stocknews
+PIL

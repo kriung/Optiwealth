@@ -73,5 +73,6 @@ with news:
         st.write(f'News sentiment {news_sentiment}')
 
 st.sidebar.button("Click Here to Predict BuY Advice")
+st.balloons()
 
 

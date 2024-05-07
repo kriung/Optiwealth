@@ -8,10 +8,10 @@ from PIL import Image
 from stocknews import StockNews
 
 st.set_page_config(page_title = "Optiwealth Stock Prediction App", layout = 'wide', initial_sidebar_state= 'expanded' )
-img = Image.open("Risk Vs Reward.JPG")
-st.sidebar.image(img, width= 300)
-img2 = Image.open("bears.jpeg")
-st.image(img2, width=300)
+#img = Image.open("Risk Vs Reward.JPG")
+#st.sidebar.image(img, width= 300)
+#img2 = Image.open("bears.jpeg")
+#st.image(img2, width=300)
 st.title("Welcome to Optiwealth ")
 st.header("Demystifying Stock Markets!")
 st.sidebar.title("For stock Advisory")

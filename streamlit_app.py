@@ -3,8 +3,7 @@ import plotly.graph_objects as go
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-from datetime import datetime
-from sklearn.tree import DecisionTreeClassifier
+
 import plotly.express as px
 import streamlit as st
 from PIL import Image
@@ -61,5 +60,8 @@ st.sidebar.write("YOUR CAPITAL:", capital)
 st.sidebar.button("Click Here to get our BUY/SELL Advice")
 st.sidebar.button("CLICK HERE FOR EXPECTED RETURNS")
 st.balloons()
+
+
+
 
 

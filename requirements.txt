@@ -2,3 +2,5 @@ yfinance==0.2.38
 numpy==1.26.0
 pandas==2.2.2
 plotly==5.21.0
+stocknews
+PIL

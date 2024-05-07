@@ -13,13 +13,14 @@ from stocknews import StockNews
 st.set_page_config(page_title = "Optiwealth Stock Prediction App", layout = 'wide', initial_sidebar_state= 'expanded' )
 img = Image.open("Risk Vs Reward.JPG")
 st.sidebar.image(img, width= 300)
-img2 = Image.open("bulls.jpeg")
+img2 = Image.open("bears.jpeg")
 st.image(img2, width=300)
 st.title("Welcome to Optiwealth ")
 st.header("Demystifying Stock Markets!")
 st.sidebar.title("For stock Advisory")
 st.sidebar.header("A product of Team FaPhy")
-ticker = st.sidebar.text_input('Choose Your Stock')
+ticker = st.sidebar.selectbox("Select a Stock ticker ", ['AAPL', 'MSFT', 'GOOG', 'AMZN', 'TSLA', 'META', 'NVDA', 'NFLX', 'COST', 'CSCO', 'BTC-USD'])
+#ticker = st.sidebar.text_input('Choose Your Stock')
 start_date = st.sidebar.date_input('Start Date')
 end_date =st.sidebar.date_input('End Date')
 data = yf.download(ticker, start = start_date, end =end_date)
@@ -53,8 +54,12 @@ with news:
         st.write(f'Title Sentiment{title_sentiment}')
         news_sentiment = df_news['sentiment_summary'][i]
         st.write(f'News sentiment {news_sentiment}')
-
-st.sidebar.button("Click Here to Predict BuY Advice")
+st.sidebar.selectbox("Indicate your Investment Horizon", ['Short Term', 'Mid Term', 'Long Term'])
+st.sidebar.number_input("Specify the Number of Months:")
+capital =st.sidebar.slider("Indicate Amount of Capital you wish to Invest", 10000, 100000)
+st.sidebar.write("YOUR CAPITAL:", capital)
+st.sidebar.button("Click Here to get our BUY/SELL Advice")
+st.sidebar.button("CLICK HERE FOR EXPECTED RETURNS")
 st.balloons()
 
 
